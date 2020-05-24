@@ -11,36 +11,35 @@ import org.slf4j.LoggerFactory;
 import static java.util.Objects.isNull;
 
 public class CSVReader implements Reader {
-	
-    private final Logger logger = LoggerFactory.getLogger(CSVReader.class);
-    
-    private File csvFile;
 
-    public CSVReader() {
-    }
+	private final Logger logger = LoggerFactory.getLogger(CSVReader.class);
 
+	private File csvFile;
 
-    public void setFile(File file) {
-        this.csvFile = file;
-    }
+	public CSVReader() {
+	}
 
-    /**
-     * Read all lines from csv.
-     *
-     * @return all lines as String array.
-     */
-    public List<String[]> readLines() throws Exception {
+	public void setFile(File file) {
+		this.csvFile = file;
+	}
 
-        if (isNull(csvFile)) {
-            throw new Exception("Input csv file cant be null");
-        }
-        logger.info("Started reading the csv file '{}'", csvFile.getName());
-        try {
-        	au.com.bytecode.opencsv.CSVReader reader = new au.com.bytecode.opencsv.CSVReader(new FileReader(csvFile));
-            return reader.readAll();
-        } catch (IOException e) {
-            throw new Exception("Exception reading the csvfile ", e);
-        }
-    }
+	/**
+	 * Read all lines from csv.
+	 *
+	 * @return all lines as String array.
+	 */
+	public List<String[]> readLines() throws Exception {
+
+		if (isNull(csvFile)) {
+			throw new Exception("Input csv file cant be null");
+		}
+		logger.info("Started reading the csv file '{}'", csvFile.getName());
+		try {
+			au.com.bytecode.opencsv.CSVReader reader = new au.com.bytecode.opencsv.CSVReader(new FileReader(csvFile));
+			return reader.readAll();
+		} catch (IOException e) {
+			throw new Exception("Exception reading the csvfile ", e);
+		}
+	}
 
 }

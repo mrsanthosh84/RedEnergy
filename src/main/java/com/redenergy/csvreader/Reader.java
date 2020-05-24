@@ -11,18 +11,20 @@ import java.util.List;
  *
  */
 public interface Reader {
-	
-	 /**
-     * Set the file to read.
-     * @param file
-     */
-    void setFile(File file);
 
-    /**
-     * Read all lines from the file
-     * @return
-     * @throws Exception
-     */
-    List<String[]> readLines() throws Exception;
+	/**
+	 * Set the file to read.
+	 * 
+	 * @param file
+	 */
+	void setFile(File file);
+
+	/**
+	 * Read all lines from the file
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	List<String[]> readLines() throws Exception;
 
 }
